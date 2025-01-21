@@ -16,6 +16,9 @@
 }
 
 .navigationbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   width: 48%;
   height: 85%;
@@ -23,6 +26,9 @@
 }
 
 .selectednavigationbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ECECEC;
   width: 48%;
   height: 85%;
@@ -30,12 +36,12 @@
 }
 
 .navigationbutton:hover {
-  width: 45%;
+  width: 48%;
   height: 75%;
   background-color: #CCE3F9;
 }
 
-.content {
+.camera {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,7 +113,17 @@
 
 .Humidity {
   background-color: #F7E6E6;
-
   border: #FF0000;
   box-shadow: 0px 0vw 1vw 1vw #FF0000;
+}
+
+.graphs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  position: absolute;
+  top: 8vh;
+  width: 100%;
+  height: 90vh;
 }

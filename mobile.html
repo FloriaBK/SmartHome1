@@ -17,10 +17,10 @@
 </head>
 <body>
     <div class="navigationbar">
-        <div id="statisticsButton" class="selectednavigationbutton" onclick="switchToStatistics()">  </div>
-        <div id="cameraButton" class="navigationbutton" onclick="switchToCamera()">  </div>
+        <div id="graphsButton" class="selectednavigationbutton" onclick="switchToGraphs()">📈</div>
+        <div id="cameraButton" class="navigationbutton" onclick="switchToCamera()">📷</div>
     </div>
-    <div class="content">
+    <div id="camera" class="camera">
         <img src="example_plant.png" class="image">
         <div class="statistics">
             <div class="Moisture statisticsbox">Moisture <br> <b>Great</b> <br> 6.2</div>
@@ -30,11 +30,11 @@
             <div class="pH statisticsbox">pH <br> <b>Great</b> <br> 6.2</div>
 
             <div class="Electricity statisticsbox">Electricity <br> <b>Great</b> <br> 6.2</div>
-            <div class="Humidity statisticsbox">Humidity <br> <b>Great</b> <br> 6.2</div>
+            <div class="Humidity statisticsbox">Humidity <br> <b>Bad</b> <br> 6.2</div>
         </div>
     </div>
 
-    <div class="graphs">
+    <div id="graphs" class="graphs">
         test
     </div>
 
