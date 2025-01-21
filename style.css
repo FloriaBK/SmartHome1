@@ -16,6 +16,8 @@
 }
 
 .navigationbutton {
+  font-size: 3vh;
+  font-family: "San Francisco", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +28,8 @@
 }
 
 .selectednavigationbutton {
+  font-size: 3vh;
+  font-family: "San Francisco", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
