@@ -76,11 +76,38 @@
   box-shadow: 0 2px 6px #797979;
 }
 
-.Temperature {
+.statisticsbox {
+  font-size: 4vw;
   font-family: "San Francisco", monospace;
   padding: 2vw;
-  background-color: #E1FDDE;
   border-radius: 10px;
   width: 25vw;
   height: 25vw;
+}
+
+.Temperature {
+  background-color: #E1FDDE;
+}
+
+.Moisture {
+  background-color: #E1FDDE;
+}
+
+.Nutrients {
+  background-color: #E1FDDE;
+}
+
+.pH {
+  background-color: #E1FDDE;
+}
+
+.Electricity {
+  background-color: #FCFEDE;
+}
+
+.Humidity {
+  background-color: #F7E6E6;
+
+  border: #FF0000;
+  box-shadow: 0px 0vw 1vw 1vw #FF0000;
 }
