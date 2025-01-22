@@ -1,0 +1,50 @@
+{
+    "Moisture": {
+        "Good": {
+            "min": 1.0, "max": 2.0
+        },
+        "Neutral": {
+            "min": 0.0, "max": 3.0
+        }
+    },
+    "Temperature": {
+        "Good": {
+            "min": 1.0, "max": 2.0
+        },
+        "Neutral": {
+            "min": 0.0, "max": 3.0
+        }
+    },
+    "Nutrients": {
+        "Good": {
+            "min": 1.0, "max": 2.0
+        },
+        "Neutral": {
+            "min": 0.0, "max": 3.0
+        }
+    },
+    "pH": {
+        "Good": {
+            "min": 1.0, "max": 2.0
+        },
+        "Neutral": {
+            "min": 0.0, "max": 3.0
+        }
+    },
+    "Electricity": {
+        "Good": {
+            "min": 1.0, "max": 2.0
+        },
+        "Neutral": {
+            "min": 0.0, "max": 3.0
+        }
+    },
+    "Humidity": {
+        "Good": {
+            "min": 1.0, "max": 2.0
+        },
+        "Neutral": {
+            "min": 0.0, "max": 3.0
+        }
+    }
+}
