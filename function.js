@@ -1,14 +1,17 @@
 //general function
 var parameter;
 var currentvalues;
+const folderPath = './Statistics';
+
+window.onload = setStatistics;
+window.onload = getBiggestStatistic;
 
 function checkState(type) {
     let typeElement = document.getElementsByClassName(type);
-    let valueElement = document.getElementsByClassName("value"+type);
-    let value = "rr";
+    let value = "";
 
     for (let i = 0; i < typeElement.length; i++) {
-        switch(type) {
+        switch (type) {
             case "Moisture":
                 value = currentvalues[type].toString() + "<span style='font-size: 4vw;'> g/m³</span>";
                 break;
@@ -31,13 +34,13 @@ function checkState(type) {
                 break;
         }
 
-        if(currentvalues[type] > parameter[type].Good.min && currentvalues[type] < parameter[type].Good.max) {
+        if (currentvalues[type] > parameter[type].Good.min && currentvalues[type] < parameter[type].Good.max) {
             typeElement[i].style.backgroundColor = "#E1FDDE";
             typeElement[i].getElementsByClassName("state")[0].innerHTML = "Good";
             typeElement[i].getElementsByClassName("value")[0].innerHTML = value;
             typeElement[i].getElementsByClassName("value")[0].style.color = "#78D652";
         } else {
-            if(currentvalues[type] > parameter[type].Neutral.min && currentvalues[type] < parameter[type].Neutral.max) {
+            if (currentvalues[type] > parameter[type].Neutral.min && currentvalues[type] < parameter[type].Neutral.max) {
                 typeElement[i].style.backgroundColor = "#FCFEDE";
                 typeElement[i].getElementsByClassName("state")[0].innerHTML = "Neutral";
                 typeElement[i].getElementsByClassName("value")[0].innerHTML = value;
@@ -53,25 +56,31 @@ function checkState(type) {
     }
 }
 
+function getBiggestStatistic() {
+    var fs = require('fs');
+    fileList = fs.readdirSync("Statistics/");
+    alert("test");
+}
+
 function setStatistics() {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", "parameter.json", false);
-    rawFile.onreadystatechange = function() {
-        if((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
+    rawFile.onreadystatechange = function () {
+        if ((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
             parameter = JSON.parse(rawFile.responseText);
-        }else {
-            alert("Can't load parameter.json");
+        } else {
+            console.error("Can't load parameter.json");
         }
     }
     rawFile.send(null);
 
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "Statistics/1737575710.json", false);
-    rawFile.onreadystatechange = function() {
-        if((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
+    rawFile.open("GET", "Statistics/Statistics_2.json", false);
+    rawFile.onreadystatechange = function () {
+        if ((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
             currentvalues = JSON.parse(rawFile.responseText);
-        }else {
-            alert("Can't load parameter.json");
+        } else {
+            console.error("Can't load parameter.json");
         }
     }
     rawFile.send(null);
@@ -84,8 +93,6 @@ function setStatistics() {
     checkState("Humidity");
 
 }
-
-window.onload = setStatistics;
 
 //desktop function
 
@@ -101,7 +108,7 @@ function slideGraphsIn() {
     graphs.style.display = "flex";
     camera.style.display = "flex";
     document.body.style.overflow = "hidden";
-    
+
     function animate() {
         graphsPos += 10;
         cameraPos += 10;
@@ -123,7 +130,7 @@ function slideCameraIn() {
     graphs.style.display = "flex";
     camera.style.display = "flex";
     document.body.style.overflow = "hidden";
-    
+
     function animate() {
         graphsPos -= 10;
         cameraPos -= 10;
@@ -140,14 +147,14 @@ function slideCameraIn() {
 }
 
 function switchToCamera() {
-    if(graphsButton.classList.contains("selectednavigationbutton")) {
+    if (graphsButton.classList.contains("selectednavigationbutton")) {
         slideCameraIn();
     }
     graphsButton.className = "navigationbutton";
     cameraButton.className = "selectednavigationbutton";
 }
 function switchToGraphs() {
-    if(cameraButton.classList.contains("selectednavigationbutton")) {
+    if (cameraButton.classList.contains("selectednavigationbutton")) {
         slideGraphsIn();
     }
     graphsButton.className = "selectednavigationbutton";
