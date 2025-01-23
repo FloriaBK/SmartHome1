@@ -1,7 +1,7 @@
 {
     "Moisture": {
         "Good": {
-            "min": 1.0, "max": 2.0
+            "min": 0.6, "max": 0.85
         },
         "Neutral": {
             "min": 0.0, "max": 3.0
@@ -41,10 +41,10 @@
     },
     "Humidity": {
         "Good": {
-            "min": 1.0, "max": 2.0
+            "min": 0.7, "max": 0.85
         },
         "Neutral": {
-            "min": 0.0, "max": 3.0
+            "min": 0.6, "max": 0.90
         }
     }
 }

@@ -5,21 +5,51 @@ var currentvalues;
 function checkState(type) {
     let typeElement = document.getElementsByClassName(type);
     let valueElement = document.getElementsByClassName("value"+type);
+    let value = "rr";
 
     for (let i = 0; i < typeElement.length; i++) {
-        //let valueElement = typeElement.querySelector('.value');
+        switch(type) {
+            case "Moisture":
+                value = currentvalues[type].toString() + "<span style='font-size: 4vw;'> g/m³</span>";
+                break;
+            case "Temperature":
+                value = currentvalues[type].toString() + "<span style='font-size: 4vw;'> C°</span>";
+                break;
+            case "Nutrients":
+                value = currentvalues[type].toString() + "<span style='font-size: 4vw;'></span>";
+                break;
+            case "pH":
+                value = currentvalues[type].toString();
+                break;
+            case "Electricity":
+                value = currentvalues[type].toString() + "<span style='font-size: 4vw;'> kWh</span>";
+                break;
+            case "Humidity":
+                value = (currentvalues[type] * 100.0).toString() + "<span style='font-size: 4vw;'> %</span>";
+                break;
+            default:
+                break;
+        }
 
         if(currentvalues[type] > parameter[type].Good.min && currentvalues[type] < parameter[type].Good.max) {
             typeElement[i].style.backgroundColor = "#E1FDDE";
+            typeElement[i].getElementsByClassName("state")[0].innerHTML = "Good";
+            typeElement[i].getElementsByClassName("value")[0].innerHTML = value;
+            typeElement[i].getElementsByClassName("value")[0].style.color = "#78D652";
         } else {
             if(currentvalues[type] > parameter[type].Neutral.min && currentvalues[type] < parameter[type].Neutral.max) {
                 typeElement[i].style.backgroundColor = "#FCFEDE";
+                typeElement[i].getElementsByClassName("state")[0].innerHTML = "Neutral";
+                typeElement[i].getElementsByClassName("value")[0].innerHTML = value;
+                typeElement[i].getElementsByClassName("value")[0].style.color = "#FFE627";
             } else {
                 typeElement[i].style.backgroundColor = "#F7E6E6";
                 typeElement[i].style.boxShadow = "0px 0vw 1vw 1vw #FF0000";
+                typeElement[i].getElementsByClassName("state")[0].innerHTML = "Bad";
+                typeElement[i].getElementsByClassName("value")[0].innerHTML = value;
+                typeElement[i].getElementsByClassName("value")[0].style.color = "#D65252";
             }
         }
-        valueElement[i].innerText = currentvalues[type];
     }
 }
 
@@ -45,6 +75,7 @@ function setStatistics() {
         }
     }
     rawFile.send(null);
+
     checkState("Moisture");
     checkState("Temperature");
     checkState("Nutrients");

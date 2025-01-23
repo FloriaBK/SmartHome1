@@ -1,6 +1,6 @@
-/* General Styles  */
-.text {
-  font-family: "San Francisco", monospace;
+/* General Styles */
+:root {
+  --font-family: 'Roboto', sans-serif;
 }
 
 /* Styles of mobile version */
@@ -17,7 +17,7 @@
 
 .navigationbutton {
   font-size: 3vh;
-  font-family: "San Francisco", monospace;
+  font-family: var(--font-family);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,12 +88,24 @@
 
 .statisticsbox {
   font-size: 4vw;
-  font-family: "San Francisco", monospace;
+  font-family: var(--font-family);
   background-color: #E8E8ED;
   padding: 2vw;
   border-radius: 10px;
   width: 25vw;
   height: 25vw;
+}
+
+.state {
+  font-family: var(--font-family);
+  font-size: 5vw;
+  font-weight: bold;
+}
+.value {
+  font-family: var(--font-family);
+  font-size: 10vw;
+  font-weight: bold;
+
 }
 
 .graphs {
