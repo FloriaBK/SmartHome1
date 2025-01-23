@@ -1,10 +1,8 @@
 //general function
 var parameter;
 var currentvalues;
-const folderPath = './Statistics';
 
 window.onload = setStatistics;
-window.onload = getBiggestStatistic;
 
 function checkState(type) {
     let typeElement = document.getElementsByClassName(type);
@@ -56,12 +54,6 @@ function checkState(type) {
     }
 }
 
-function getBiggestStatistic() {
-    var fs = require('fs');
-    fileList = fs.readdirSync("Statistics/");
-    alert("test");
-}
-
 function setStatistics() {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", "parameter.json", false);
@@ -75,7 +67,7 @@ function setStatistics() {
     rawFile.send(null);
 
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "Statistics/Statistics_2.json", false);
+    rawFile.open("GET", "Statistics/Statistics_1.json", false);
     rawFile.onreadystatechange = function () {
         if ((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
             currentvalues = JSON.parse(rawFile.responseText);
