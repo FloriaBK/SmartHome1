@@ -4,6 +4,7 @@ var currentvalues;
 
 function checkState(type) {
     let typeElement = document.getElementsByClassName(type);
+    let valueElement = document.getElementsByClassName("value"+type);
 
     for (let i = 0; i < typeElement.length; i++) {
         //let valueElement = typeElement.querySelector('.value');
@@ -18,7 +19,7 @@ function checkState(type) {
                 typeElement[i].style.boxShadow = "0px 0vw 1vw 1vw #FF0000";
             }
         }
-        document.getElementById("value").innerText = "New Text";
+        valueElement[i].innerText = currentvalues[type];
     }
 }
 
