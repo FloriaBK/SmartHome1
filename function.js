@@ -3,7 +3,7 @@ var parameter;
 var currentvalues;
 var list;
 
-window.onload = setStatistics;
+window.addEventListener("load", setStatistics);
 
 function checkState(type) {
     let typeElement = document.getElementsByClassName(type);
@@ -58,7 +58,7 @@ function checkState(type) {
 function setStatistics() {
     //Open parameter
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "Statistics/parameter.json", false);
+    rawFile.open("GET", "statistics/parameter.json", false);
     rawFile.onreadystatechange = function () {
         if ((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
             parameter = JSON.parse(rawFile.responseText);
@@ -69,7 +69,7 @@ function setStatistics() {
     rawFile.send(null);
 
     //Open list
-    rawFile.open("GET", "Statistics/list.json", false);
+    rawFile.open("GET", "statistics/list.json", false);
     rawFile.onreadystatechange = function () {
         if ((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
             list = JSON.parse(rawFile.responseText);
@@ -82,12 +82,12 @@ function setStatistics() {
     //Open newest Statistic
     var newestStatistic = list.events[list.events.length - 1].Name;
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "Statistics/" + newestStatistic + ".json", false);
+    rawFile.open("GET", "statistics/" + newestStatistic + ".json", false);
     rawFile.onreadystatechange = function () {
         if ((rawFile.readyState === 4) && (rawFile.status === 200 || rawFile.status === 0)) {
             currentvalues = JSON.parse(rawFile.responseText);
         } else {
-            console.error("Can't load Statistics");
+            console.error("Can't load statistics");
         }
     }
     rawFile.send(null);

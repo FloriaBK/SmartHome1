@@ -118,3 +118,12 @@
   width: 100%;
   height: 90vh;
 }
+
+.moistureGraph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  height: 40vw;
+  width: 100vw;
+}

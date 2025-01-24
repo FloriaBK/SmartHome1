@@ -4,10 +4,10 @@ import json
 import os
 import time
 
-if not os.path.exists("../Statistics"):
-    os.makedirs("../Statistics")
+if not os.path.exists("../statistics"):
+    os.makedirs("../statistics")
 
-existing_files = os.listdir("../Statistics")
+existing_files = os.listdir("../statistics")
 
 #find the newest Statistic
 highest_number = 0
@@ -34,7 +34,7 @@ with open(os.path.join("../Statistics", filename), "w") as outfile:
 #add the new date
 new_date = {"Date": int(time.time()), "Name": "Statistics_" + str(next_number)}
 try:
-    with open("../Statistics/list.json","r") as file:
+    with open("../statistics/list.json","r") as file:
         old_dates = json.load(file)
 except FileNotFoundError:
     old_dates = {}
@@ -47,5 +47,5 @@ old_dates["events"] = sorted(old_dates["events"], key=lambda event: event["Date"
 sorted_json  = json.dumps(old_dates, indent=4)
 
 #save the json
-with open("../Statistics/list.json", 'w') as file:
+with open("../statistics/list.json", 'w') as file:
     json.dump(old_dates, file, indent=4)
