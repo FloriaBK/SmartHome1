@@ -25,7 +25,7 @@ next_number = highest_number + 1
 # save the new Statistic
 filename = f"Statistics_{next_number}.json"
 data = {
-    "Moisture": 0.8, "Temperature": 0.0, "Nutrients": 0.0, "pH": 0.0, "Electricity": 0.0, "Humidity": 1.0
+    "Date": int(time.time()), "Moisture": 0.8, "Temperature": 0.0, "Nutrients": 0.0, "pH": 0.0, "Electricity": 0.0, "Humidity": 1.0
 }
 with open(os.path.join("../Statistics", filename), "w") as outfile:
     json.dump(data, outfile)
