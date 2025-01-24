@@ -1,9 +1,8 @@
-
-
 function renderChart() {
   d3.select("#chart-container").selectAll("*").remove();
+  d3.select("#chart-container2").selectAll("*").remove();
 
-  const margin = { top: window.innerWidth * 0.1, right: window.innerWidth * 0.01, bottom: window.innerWidth * 0.05, left: window.innerWidth * 0.05 };
+  const margin = {top: window.innerWidth * 0.1, right: window.innerWidth * 0.01, bottom: window.innerWidth * 0.05, left: window.innerWidth * 0.05 };
   const width = (window.innerWidth * 0.8) - margin.left - margin.right;
   const height = (window.innerWidth * 0.4) - margin.top - margin.bottom;
 
@@ -17,6 +16,13 @@ function renderChart() {
   // Create the SVG element and append it to the chart container
 
   const svg = d3.select("#chart-container")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  const svg2 = d3.select("#chart-container2")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -56,6 +62,14 @@ function renderChart() {
     .style("font-size", "2vw") // Set font size
     .style("fill", "gray"); // Optional: Change text color
 
+  svg2.append("g")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(x)
+      .ticks(d3.timeMonth.every(2)) 
+      .tickFormat(d3.timeFormat("%b %Y")))
+    .selectAll("text") // Select all text elements in the axis
+    .style("font-size", "2vw") // Set font size
+    .style("fill", "gray"); // Optional: Change text color
 
   // Add the y-axis
 
@@ -65,6 +79,11 @@ function renderChart() {
     .style("font-size", "2vw") // Set font size
     .style("fill", "gray"); // Optional: Change text color
 
+  svg2.append("g")
+    .call(d3.axisLeft(y))
+    .selectAll("text") // Select all text elements in the axis
+    .style("font-size", "2vw") // Set font size
+    .style("fill", "gray"); // Optional: Change text color
   // Create the line generator
 
   const line = d3.line()
@@ -74,6 +93,13 @@ function renderChart() {
   // Add the line path to the SVG element
 
   svg.append("path")
+    .datum(dataset)
+    .attr("fill", "none")
+    .attr("stroke", "steelblue")
+    .attr("stroke-width", 1)
+    .attr("d", line);
+  
+  svg2.append("path")
     .datum(dataset)
     .attr("fill", "none")
     .attr("stroke", "steelblue")
