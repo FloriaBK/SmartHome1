@@ -80,7 +80,7 @@ function setStatistics() {
     rawFile.send(null);
 
     //Open newest Statistic
-    var newestStatistic = list.events[list.events.length - 1].Name;
+    var newestStatistic = list.events[list.events.length - 1].name;
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", "statistics/" + newestStatistic + ".json", false);
     rawFile.onreadystatechange = function () {

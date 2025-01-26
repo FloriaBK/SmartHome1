@@ -1,44 +1,16 @@
 {
     "events": [
         {
-            "Date": 1737753106,
-            "Name": "Statistics_1"
+            "date": 1737900902,
+            "name": "statistics_1"
         },
         {
-            "Date": 1737753107,
-            "Name": "Statistics_2"
+            "date": 1737900919,
+            "name": "statistics_2"
         },
         {
-            "Date": 1737753109,
-            "Name": "Statistics_3"
-        },
-        {
-            "Date": 1737756684,
-            "Name": "Statistics_4"
-        },
-        {
-            "Date": 1737756684,
-            "Name": "Statistics_5"
-        },
-        {
-            "Date": 1737756685,
-            "Name": "Statistics_6"
-        },
-        {
-            "Date": 1737756685,
-            "Name": "Statistics_7"
-        },
-        {
-            "Date": 1737756686,
-            "Name": "Statistics_8"
-        },
-        {
-            "Date": 1737756686,
-            "Name": "Statistics_9"
-        },
-        {
-            "Date": 1737756687,
-            "Name": "Statistics_10"
+            "date": 1737902298,
+            "name": "statistics_3"
         }
     ]
 }
