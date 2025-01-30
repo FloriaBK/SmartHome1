@@ -129,6 +129,8 @@ function slideGraphsIn() {
         }
     }
     animate();
+    graphs.style.transform = `translateX(10 vw)`;
+    camera.style.transform = `translateX(110 vw)`;
 }
 
 function slideCameraIn() {

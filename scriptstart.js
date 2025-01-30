@@ -4,7 +4,7 @@ function renderChart() {
 
   const margin = {top: window.innerWidth * 0.1, right: window.innerWidth * 0.01, bottom: window.innerWidth * 0.05, left: window.innerWidth * 0.05 };
   const width = (window.innerWidth * 0.8) - margin.left - margin.right;
-  const height = (window.innerWidth * 0.4) - margin.top - margin.bottom;
+  const height = (window.innerWidth * 0.5) - margin.top - margin.bottom;
 
   // Set up the x and y scales
   const x = d3.scaleTime()
